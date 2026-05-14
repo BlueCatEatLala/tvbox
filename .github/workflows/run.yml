@@ -33,6 +33,7 @@ jobs:
           python fty.py
           python xiao.py ../xiaosa/api.json dianshi.json
           python xiao.py ../xiaosa/api.json jsm.json
+          sed -i '/"lives":\[/a {"name":"HLJTV","type":0,"url":"https://ghfast.top/https://raw.githubusercontent.com/BlueCatEatLala/Tvlist-private/master/m3u/HLJTV.m3u","playerType":1,"timeout":20},' jsm.json
           \cp -pdr tvbox_cleaned.json ../fty.json
           \cp -pdr dianshi_with_app_sites.json ../dianshi.json
           \cp -pdr jsm_with_app_sites.json ../jsm.json
