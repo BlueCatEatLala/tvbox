@@ -35,7 +35,7 @@ jobs:
           
           python xiao.py ../xiaosa/api.json jsm.json
           # 1. 复制 jsm.json 为 jsm-bj.json（备份副本）
-          cp jsm.json jsm-bj.json
+          \cp -pdr jsm.json jsm-bj.json
          
           # 2. 给副本 jsm-bj.json 插入 BJTV 直播源
           sed -i '/"lives":\[/a {"name":"BJTV","type":0,"url":"https://ghfast.top/https://raw.githubusercontent.com/BlueCatEatLala/iptv-api/master/output/user_result.m3u","playerType":1,"timeout":20},' jsm-bj.json
@@ -43,7 +43,7 @@ jobs:
           # 3. 给原版 jsm.json 插入 HLJTV 直播源
           sed -i '/"lives":\[/a {"name":"HLJTV","type":0,"url":"https://ghfast.top/https://raw.githubusercontent.com/BlueCatEatLala/Tvlist-private/master/m3u/HLJTV.m3u","playerType":1,"timeout":20},' jsm.json
 
-          cp jsm-bj.json ../jsm-bj.json
+          \cp -pdr jsm-bj.json ../jsm-bj.json
           
           \cp -pdr tvbox_cleaned.json ../fty.json
           \cp -pdr dianshi_with_app_sites.json ../dianshi.json
