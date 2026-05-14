@@ -33,6 +33,15 @@ jobs:
           python fty.py
           python xiao.py ../xiaosa/api.json dianshi.json
           python xiao.py ../xiaosa/api.json jsm.json
+
+          # ========== 插入 HLJTV（只插1次，永不重复） ==========
+          grep -q "HLJTV" jsm.json || sed -i '/"lives":\[/a {"name":"HLJTV","type":0,"url":"https://ghfast.top/https://raw.githubusercontent.com/BlueCatEatLala/Tvlist-private/master/m3u/HLJTV.m3u","playerType":1,"timeout":20},' jsm.json
+
+          # ========== 创建 jsm-bj.json + 插入 BJTV（永不重复） ==========
+          \cp jsm.json jsm-bj.json
+          grep -q "BJTV" jsm-bj.json || sed -i '/"lives":\[/a {"name":"BJTV","type":0,"url":"https://ghfast.top/https://raw.githubusercontent.com/BlueCatEatLala/iptv-api/master/output/user_result.m3u","playerType":1,"timeout":20},' jsm-bj.json
+          \cp jsm-bj.json ../jsm-bj.json
+          
           \cp -pdr tvbox_cleaned.json ../fty.json
           \cp -pdr dianshi_with_app_sites.json ../dianshi.json
           \cp -pdr jsm_with_app_sites.json ../jsm.json
