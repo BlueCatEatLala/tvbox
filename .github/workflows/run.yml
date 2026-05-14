@@ -32,6 +32,7 @@ jobs:
           pip install demjson3 --break-system-packages
           python fty.py
           python xiao.py ../xiaosa/api.json dianshi.json
+          \cp -pdr jsm.json jsm-bj.json
           \cp -pdr tvbox_cleaned.json ../fty.json
           \cp -pdr dianshi_with_app_sites.json ../dianshi.json
           \cp -pdr jsm_with_app_sites.json ../jsm.json
